@@ -19,6 +19,8 @@ public class Book implements Serializable {
   private String titel;
   
   //Auditing-Details
+  private String user;
+  
   private String operation;
   
   private long timestamp;
@@ -60,7 +62,19 @@ public class Book implements Serializable {
     this.titel = titel;
   }
 
-    
+  
+  public String getUser()
+  {
+    return user;
+  }
+
+  
+  public void setUser(String user)
+  {
+    this.user = user;
+  }
+  
+
   public String getOperation()
   {
     return operation;

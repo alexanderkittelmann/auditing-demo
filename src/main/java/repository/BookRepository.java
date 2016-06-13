@@ -4,10 +4,12 @@ import java.time.LocalDate;
 import java.util.Date;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PostPersist;
 import javax.persistence.PrePersist;
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
 import entity.Book;
@@ -17,6 +19,9 @@ public class BookRepository {
   
   @PersistenceContext(unitName="auditing")
   EntityManager em;
+  
+  @Inject
+  HttpServletRequest request;
   
   @Transactional
   public void persist(Book book){
@@ -38,6 +43,7 @@ public class BookRepository {
   
   @PrePersist
   public void audit(Book book) {
+    book.setUser(request.getUserPrincipal().toString());
     book.setOperation("PERSIST");
     book.setTimestamp((new Date()).getTime());
   }

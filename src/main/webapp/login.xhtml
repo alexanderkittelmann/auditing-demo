@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+  <ui:composition template="/resources/template/commonLayout.xhtml">
+
+    <ui:define name="content">
+        <form
+          method="post"
+          action="j_security_check">
+          <br/>
+          <br/>
+          <table
+            border="0"
+            class="loginTable">
+            <tr>
+              <td><span class="text">Benutzername:</span></td>
+              <td><input
+                type="text"
+                name="j_username"
+                tabindex="1"/></td>
+            </tr>
+            <tr>
+              <td><span class="text">Kennwort:</span></td>
+              <td><input
+                type="password"
+                name="j_password"
+                tabindex="2"/></td>
+            </tr>
+            <tr>
+              <td
+                colspan="2"
+                align="center"><input
+                type="submit"
+                value="Anmelden"
+                tabindex="3"
+                style="width: 123px; color: #000000; font-weight: bold; background: #DCDCDC; margin-top: 20px;"/></td>
+            </tr>
+          </table>
+        </form>
+    </ui:define>
+
+  </ui:composition>
+
+</h:body>
+
+</html>
