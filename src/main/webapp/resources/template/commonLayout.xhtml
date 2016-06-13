@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<h:head>
+    <title><h:outputText value="Identity Provider" /></title>
+  </h:head>
+    
+    <h:body>
+      <h:panelGroup layout="block">
+        <ui:insert name="top">
+          <a href="http://gedoplan.de"><h:graphicImage
+          value="/resources/image/gedoplan.png" height="70px" width="auto"
+          style="horizontal-align: right;" /></a>
+        </ui:insert>      
+      </h:panelGroup>
+  
+      <h:panelGroup layout="block">
+          <ui:insert name="content"><h:outputText value="Default Content" /></ui:insert>
+      </h:panelGroup>
+
+    </h:body>
+</html>
