@@ -3,27 +3,33 @@ package entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
-public class Book implements Serializable {
+@EntityListeners({AuditListener.class})
+public class Book extends AuditingEntity implements Serializable {
   
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
+
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
   long id;
   
+  @NotNull
+  @Size(min=2)
   private String autor;
   
-  private String titel;
-  
-  //Auditing-Details
-  private String user;
-  
-  private String operation;
-  
-  private long timestamp;
+  @NotNull
+  @Size(min=2)
+  private String titel;  
   
   public Book() {}  
   
@@ -63,42 +69,7 @@ public class Book implements Serializable {
   }
 
   
-  public String getUser()
-  {
-    return user;
-  }
-
-  
-  public void setUser(String user)
-  {
-    this.user = user;
-  }
-  
-
-  public String getOperation()
-  {
-    return operation;
-  }
-
-  
-  public void setOperation(String operation)
-  {
-    this.operation = operation;
-  }
-
-  
-  public long getTimestamp()
-  {
-    return timestamp;
-  }
-
-  
-  public void setTimestamp(long timestamp)
-  {
-    this.timestamp = timestamp;
-  }
-
-  @Override
+   @Override
   public int hashCode()
   {
     final int prime = 31;

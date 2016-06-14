@@ -8,4 +8,6 @@
   
   <security-domain>other</security-domain>
   
+  <context-root>auditing-demo</context-root>
+  
 </jboss-web>

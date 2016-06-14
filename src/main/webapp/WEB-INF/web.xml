@@ -64,6 +64,13 @@
     </form-login-config>
   </login-config>
   
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>image</web-resource-name>
+      <url-pattern>/resources/image/*</url-pattern>
+    </web-resource-collection>
+  </security-constraint>
+  
   <!-- Security -->
   <security-role>
     <role-name>audit</role-name>
