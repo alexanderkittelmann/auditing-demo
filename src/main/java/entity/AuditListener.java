@@ -20,9 +20,6 @@ public class AuditListener
     audit(book);
   }
   
-//  @PreRemove
-//  public void
-  
   public void audit(Book book) {
     book.setTimestamp(LocalDateTime.now());
   }
