@@ -1,6 +1,7 @@
 package presentation;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
@@ -34,5 +35,10 @@ public class BookPresenter {
   public void setNeuesBuch(Book neuesBuch)
   {
     this.neuesBuch = neuesBuch;
-  }  
+  }
+  
+  public List<Book> findeAlleBuecher()
+  {
+    return this.bookRepository.findAll();
+  }
 }

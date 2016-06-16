@@ -1,9 +1,66 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
 
-	<ui:composition template="">
+<h:body>
+	<ui:composition template="/resources/template/commonLayout.xhtml">
+		<ui:define name="content">
+			<h:form>
+				<br />
+				<br />
+				<h:outputText value="Alle Datenbankeinträge" style="font-size: 25pt" />
+				<br />
+				<br />
+				<h:dataTable value="#{bookPresenter.findeAlleBuecher()}" var="buch">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="ID" />
+						</f:facet>
+						<h:outputText value="#{buch.id}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Titel" />
+						</f:facet>
+						<h:outputText value="#{buch.titel}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Autor" />
+						</f:facet>
+						<h:outputText value="#{buch.autor}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Operation" />
+						</f:facet>
+						<h:outputText value="#{buch.operation}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Benutzer" />
+						</f:facet>
+						<h:outputText value="#{buch.user}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Zeitstempel" />
+						</f:facet>
+						<h:outputText value="#{buch.timestamp}" />
+					</h:column>
+				</h:dataTable>
+				<br />
+				<br />
+				<h:outputLink value="index.xhtml">Datenbankeintrag vornehmen</h:outputLink>  
+			</h:form>
+		</ui:define>
 	</ui:composition>
+</h:body>
 </html>

@@ -22,7 +22,9 @@
         <h:inputText value="#{bookPresenter.neuesBuch.titel}" />
         <h:commandButton action="#{bookPresenter.newBook()}" value="Speichern" />
         </h:panelGrid>
-        <br />        
+        <br />
+        <br />
+        <h:outputLink value="bookOverview.xhtml">Datenbankeinträge</h:outputLink>  
       </h:form>
     </ui:define>
   </ui:composition>
