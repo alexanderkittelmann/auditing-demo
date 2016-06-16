@@ -1,8 +1,11 @@
 package repository;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -13,30 +16,44 @@ import javax.transaction.Transactional;
 
 import entity.Book;
 
-@RequestScoped
-public class BookRepository {
-  
-  @PersistenceContext(unitName="auditing")
-  EntityManager em;  
-  
+@SessionScoped
+public class BookRepository implements Serializable {
+
+  @PersistenceContext(unitName = "auditing")
+  EntityManager em;
+
+  @Inject
+  Book aendernBuch;
+
   @Transactional
-  public void persist(Book book){
+  public void persist(Book book)
+  {
     em.persist(book);
   }
-  
-  public void merge(Book book){
-    em.merge(book);
+
+  @Transactional
+  public void merge()
+  {
+    Book mergeBook = em.find(Book.class, this.aendernBuch.getId());
+    mergeBook.setAutor(this.aendernBuch.getAutor());
+    mergeBook.setTitel(this.aendernBuch.getTitel());
+    em.merge(mergeBook);
   }
-  
-  public void remove(Book book){
-    em.remove(book);
+
+  @Transactional
+  public void remove(Book book)
+  {
+    Book remBook = em.find(Book.class, book.getId());
+    em.remove(remBook);
   }
-  
-  public Book find(long id){
+
+  public Book find(long id)
+  {
     return em.find(Book.class, id);
   }
-  
-  public List<Book> findAll() {
+
+  public List<Book> findAll()
+  {
     CriteriaBuilder cb = em.getCriteriaBuilder();
     CriteriaQuery<Book> cq = cb.createQuery(Book.class);
     Root<Book> rootEntry = cq.from(Book.class);
@@ -45,4 +62,15 @@ public class BookRepository {
     List<Book> alleBuecher = allQuery.getResultList();
     return alleBuecher;
   }
+
+  public Book getAendernBuch()
+  {
+    return aendernBuch;
+  }
+
+  public void setAendernBuch(Book aendernBuch)
+  {
+    this.aendernBuch = aendernBuch;
+  }
+
 }

@@ -10,16 +10,22 @@
     name="auditing"
     transaction-type="JTA">
 
-    <provider>org.hibernate.ejb.HibernatePersistence</provider>
-
-    <jta-data-source>jboss/datasources/ExampleDS</jta-data-source>
+    <jta-data-source>jdbc/auditing</jta-data-source>
 
     <properties>
       <!-- H2 DB -->
-      <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-      <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"/>
-      <property name="javax.persistence.jdbc.user" value="sa"/>
-      <property name="javax.persistence.jdbc.password" value="sa"/>
+<!--       <property -->
+<!--         name="javax.persistence.jdbc.driver" -->
+<!--         value="org.h2.Driver"/> -->
+<!--       <property -->
+<!--         name="javax.persistence.jdbc.url" -->
+<!--         value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"/> -->
+<!--       <property -->
+<!--         name="javax.persistence.jdbc.user" -->
+<!--         value="sa"/> -->
+<!--       <property -->
+<!--         name="javax.persistence.jdbc.password" -->
+<!--         value="sa"/> -->
 
       <property
         name="hibernate.hbm2ddl.auto"
@@ -32,23 +38,20 @@
         value="org.hibernate.dialect.MySQLDialect"/>
         
         <!-- Auswahl des DB-Dialektes -->
-      <property
-        name="eclipselink.target-database"
-        value="Auto"/>
-      <property
-        name="eclipselink.jdbc.native-sql"
-        value="true"/>
+<!--       <property -->
+<!--         name="eclipselink.target-database" -->
+<!--         value="Auto"/> -->
+<!--       <property -->
+<!--         name="eclipselink.jdbc.native-sql" -->
+<!--         value="true"/> -->
 
       <!-- Schemagenerierung -->
-      <property
-        name="eclipselink.ddl-generation"
-        value="create-or-extend-tables"/>
-      <property
-        name="eclipselink.ddl-generation.output-mode"
-        value="database"/>
-      <property
-        name="hibernate.hbm2ddl.auto"
-        value="update"/>
+<!--       <property -->
+<!--         name="eclipselink.ddl-generation" -->
+<!--         value="create-or-extend-tables"/> -->
+<!--       <property -->
+<!--         name="eclipselink.ddl-generation.output-mode" -->
+<!--         value="database"/> -->
     </properties>
 
   </persistence-unit>

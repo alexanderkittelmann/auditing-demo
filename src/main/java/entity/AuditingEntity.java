@@ -37,7 +37,7 @@ public class AuditingEntity
   public void setUser()
   {
     // Sollte eientlich in AuditListener geschehen, jedoch kommt es zu einer Exception sobald in der
-    // Listener-Klasse eine Injektion durchgeführt wird
+    // Listener-Klasse eine Injektion durchgefuehrt wird
     this.user = request.getUserPrincipal().toString();
   }
 

@@ -23,12 +23,20 @@
       <groupId>javax</groupId>
       <artifactId>javaee-api</artifactId>     
       <version>7.0</version>
+      <scope>provided</scope>
     </dependency>
     
+<!--     <dependency> -->
+<!--       <groupId>com.h2database</groupId> -->
+<!--       <artifactId>h2</artifactId> -->
+<!--       <version>${h2.version}</version> -->
+<!--     </dependency> -->
+    
     <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-      <version>${h2.version}</version>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-envers</artifactId>
+      <version>5.0.9.Final</version>    
+      <scope>provided</scope> 
     </dependency>
   </dependencies>
 </project>

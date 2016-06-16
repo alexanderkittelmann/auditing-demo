@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body>
+  <ui:composition template="/resources/template/commonLayout.xhtml">
+    <ui:define name="content">
+      <h:form>
+        <br />
+        <br />
+        <h:outputText value="Eintrag ändern" style="font-size: 25pt" />
+        <br />
+        <br />
+        <h:panelGrid columns="2">
+          <h:outputText value="Autor:" />
+          <h:inputText value="#{bookPresenter.bookRepository.aendernBuch.autor}" />
+          <h:outputText value="Titel:" />
+          <h:inputText value="#{bookPresenter.bookRepository.aendernBuch.titel}" />
+          <h:commandButton action="#{bookPresenter.buchAktualisieren()}" value="Ändern" />
+        </h:panelGrid>
+        <br />
+        <br />
+        <h:outputLink value="index.xhtml">Datenbankeintrag vornehmen</h:outputLink>  
+      </h:form>
+    </ui:define>
+  </ui:composition>
+</h:body>
+</html>
