@@ -3,6 +3,7 @@ package entity;
 import java.time.LocalDateTime;
 
 import javax.persistence.PrePersist;
+import javax.persistence.PreRemove;
 import javax.persistence.PreUpdate;
 
 public class AuditListener
@@ -18,6 +19,9 @@ public class AuditListener
     book.setOperation("UPDATE");
     audit(book);
   }
+  
+//  @PreRemove
+//  public void
   
   public void audit(Book book) {
     book.setTimestamp(LocalDateTime.now());

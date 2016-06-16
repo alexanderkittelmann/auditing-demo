@@ -41,4 +41,9 @@ public class BookPresenter {
   {
     return this.bookRepository.findAll();
   }
+  
+  public void buchLoeschen(Book book)
+  {
+    this.bookRepository.remove(book);
+  }
 }

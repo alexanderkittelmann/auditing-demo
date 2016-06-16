@@ -55,6 +55,13 @@
 						</f:facet>
 						<h:outputText value="#{buch.timestamp}" />
 					</h:column>
+					
+					<h:column>
+            <f:facet name="header">
+              <h:outputText value="Löschen" />
+            </f:facet>
+            <h:commandButton action="#{bookPresenter.buchLoeschen(buch)}" value="Eintrag löschen" />
+          </h:column>
 				</h:dataTable>
 				<br />
 				<br />
