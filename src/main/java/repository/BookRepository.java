@@ -3,7 +3,6 @@ package repository;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -18,6 +17,11 @@ import entity.Book;
 
 @SessionScoped
 public class BookRepository implements Serializable {
+
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
 
   @PersistenceContext(unitName = "auditing")
   EntityManager em;

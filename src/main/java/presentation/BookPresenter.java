@@ -3,10 +3,10 @@ package presentation;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import entity.Autor;
 import entity.Book;
 import repository.BookRepository;
 
@@ -22,6 +22,13 @@ public class BookPresenter {
 
   public void newBook()
   {
+    if(this.neuesBuch.getAutor() == null) {
+      Autor nullAutor = new Autor();
+      nullAutor.setNachname("nachname");
+      nullAutor.setVorname("vorname");
+      this.neuesBuch.setAutor(nullAutor);
+    }
+    
     this.bookRepository.persist(neuesBuch);
   }
 

@@ -7,8 +7,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.envers.Audited;
 
@@ -26,12 +25,10 @@ public class Book extends AuditingEntity implements Serializable {
   @GeneratedValue(strategy=GenerationType.AUTO)
   long id;
   
-  @NotNull
-  @Size(min=2)
-  private String autor;
   
-  @NotNull
-  @Size(min=2)
+  @ManyToOne
+  private Autor autor;
+  
   private String titel;  
   
   public Book() {}  
@@ -48,13 +45,13 @@ public class Book extends AuditingEntity implements Serializable {
   }
 
   
-  public String getAutor()
+  public Autor getAutor()
   {
     return autor;
   }
 
   
-  public void setAutor(String autor)
+  public void setAutor(Autor autor)
   {
     this.autor = autor;
   }
@@ -96,7 +93,11 @@ public class Book extends AuditingEntity implements Serializable {
       return false;
     return true;
   }
-  
-  
+
+  @Override
+  public String toString()
+  {
+    return "Autor [id=" + id + "]";
+  }  
 
 }

@@ -20,7 +20,7 @@ public class AutorPresenter {
   Autor neuerAutor;
 
   public void newAutor()
-  {
+  {    
     this.autorRepository.persist(neuerAutor);
   }
 
@@ -38,7 +38,7 @@ public class AutorPresenter {
     return neuerAutor;
   }
 
-  public void setNeuesBuch(Autor neuerAutor)
+  public void setNeuerAutor(Autor neuerAutor)
   {
     this.neuerAutor = neuerAutor;
   }
@@ -48,12 +48,12 @@ public class AutorPresenter {
     return this.autorRepository.findAll();
   }
 
-  public void buchAktualisieren()
+  public void autorAktualisieren()
   {
     this.autorRepository.merge();
   }
 
-  public void buchLoeschen(Autor Autor)
+  public void autorLoeschen(Autor Autor)
   {
     this.autorRepository.remove(Autor);
   }

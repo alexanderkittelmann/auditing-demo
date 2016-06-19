@@ -1,42 +1,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:ui="http://java.sun.com/jsf/facelets"
-  xmlns:f="http://java.sun.com/jsf/core"
-  xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
 
 <h:body>
-  <ui:composition template="/resources/template/commonLayout.xhtml">
-    <ui:define name="content">
-      <h:form>
-        <br />
-        <br />
-        <h:outputText
-          value="Auditing-Demo"
-          style="font-size: 25pt" />
-        <br />
-        <br />
-        <h:panelGrid columns="2">
-        <h:outputLabel value="Name:" />
-        <h:inputText value="#{autorPresenter.neuerAutor.nachname}" />
-        <h:outputLabel value="Vorname:" />
-        <h:inputText value="#{autorPresenter.neuerAutor.vorname}" />
-        <h:commandButton action="#{autorPresenter.newAutor()}" value="Speichern" />
-        </h:panelGrid>
-        <br />
-        <br />
-        <h:panelGrid columns="2">
-        <h:outputLabel value="Autor:" />
-        <h:inputText value="#{bookPresenter.neuesBuch.autor}" />
-        <h:outputLabel value="Titel:" />
-        <h:inputText value="#{bookPresenter.neuesBuch.titel}" />
-        <h:selectManyListbox value="#{autorPresenter.findeAlleAutoren()}" ></h:selectManyListbox>
-        <h:commandButton action="#{bookPresenter.newBook()}" value="Speichern" />
-        </h:panelGrid>
-        <br />
-        <br />
-        <h:outputLink value="overview.xhtml">Datenbankeinträge</h:outputLink>  
-      </h:form>
-    </ui:define>
-  </ui:composition>
+	<ui:composition template="/resources/template/commonLayout.xhtml">
+		<ui:define name="content">
+			<h:form>
+				<br />
+				<br />
+				<h:outputText value="Auditing-Demo" style="font-size: 25pt" />
+				<br />
+				<br />
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Name:" />
+					<h:inputText value="#{autorPresenter.neuerAutor.nachname}" />
+					<h:outputLabel value="Vorname:" />
+					<h:inputText value="#{autorPresenter.neuerAutor.vorname}" />
+					<h:commandButton action="#{autorPresenter.newAutor()}"
+						value="Speichern" />
+				</h:panelGrid>
+				<br />
+				<br />
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Titel:" />
+					<h:inputText value="#{bookPresenter.neuesBuch.titel}" />
+					<h:outputLabel value="Autor:" />
+					<h:selectOneMenu value="#{bookPresenter.neuesBuch.autor}">
+					<f:converter binding="#{autorConverter}" />
+					<f:selectItems value="#{autorPresenter.findeAlleAutoren()}" var="autor" itemLabel="#{autor.nachname}" itemValue="#{autor}"></f:selectItems>
+					</h:selectOneMenu>
+					<h:commandButton action="#{bookPresenter.newBook()}"
+						value="Speichern" />
+				</h:panelGrid>
+				<br />
+				<br />
+				<h:outputLink value="overview.xhtml">Datenbankeinträge</h:outputLink>
+			</h:form>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>

@@ -42,6 +42,8 @@ public class AutorRepository implements Serializable
   public void merge()
   {
     Autor mergeAutor = em.find(Autor.class, this.aendernAutor.getId());
+    mergeAutor.setNachname(this.aendernAutor.getNachname());
+    mergeAutor.setVorname(this.aendernAutor.getVorname());
     em.merge(mergeAutor);
   }
 
@@ -67,8 +69,8 @@ public class AutorRepository implements Serializable
     Root<Autor> rootEntry = cq.from(Autor.class);
     CriteriaQuery<Autor> all = cq.select(rootEntry);
     TypedQuery<Autor> allQuery = em.createQuery(all);
-    List<Autor> alleBuecher = allQuery.getResultList();
-    return alleBuecher;
+    List<Autor> alleAutoren = allQuery.getResultList();
+    return alleAutoren;
   }
 
 

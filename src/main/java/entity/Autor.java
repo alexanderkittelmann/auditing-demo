@@ -1,14 +1,15 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.OneToMany;
 
 import org.hibernate.envers.Audited;
 
@@ -27,13 +28,12 @@ public class Autor extends AuditingEntity implements Serializable
   @GeneratedValue(strategy = GenerationType.AUTO)
   long id;
 
-  @NotNull
-  @Size(min = 2)
   private String vorname;
 
-  @NotNull
-  @Size(min = 2)
   private String nachname;
+  
+  @OneToMany(mappedBy="autor", orphanRemoval=true, cascade=CascadeType.ALL)
+  private List<Book> books;
 
 
   public Autor()
@@ -96,9 +96,19 @@ public class Autor extends AuditingEntity implements Serializable
       return false;
     if (getClass() != obj.getClass())
       return false;
-    Book other = (Book) obj;
+    Autor other = (Autor) obj;
     if (id != other.id)
       return false;
     return true;
   }
+
+
+  @Override
+  public String toString()
+  {
+    return "Autor [id=" + id + "]";
+  }
+
+
+ 
 }

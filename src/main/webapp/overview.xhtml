@@ -68,7 +68,7 @@
 						<f:facet name="header">
 							<h:outputText value="Ändern" />
 						</f:facet>
-						<h:commandButton action="#{bookPresenter.saveAutor(autor)}"
+						<h:commandButton action="#{autorPresenter.saveAutor(autor)}"
 							value="Eintrag ändern" />
 					</h:column>
 				</h:dataTable>
@@ -94,9 +94,16 @@
 
 					<h:column>
 						<f:facet name="header">
-							<h:outputText value="Autor" />
+							<h:outputText value="Autor (Nachname)" />
 						</f:facet>
-						<h:outputText value="#{buch.autor}" />
+						<h:outputText value="#{buch.autor.nachname}" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Autor (Vorname)" />
+						</f:facet>
+						<h:outputText value="#{buch.autor.vorname}" />
 					</h:column>
 
 					<h:column>

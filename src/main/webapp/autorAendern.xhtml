@@ -14,14 +14,11 @@
         <br />
         <br />
         <h:panelGrid columns="2">
-          <h:outputLabel value="Autor:" />
-					<h:selectOneMenu value="#{bookPresenter.bookRepository.aendernBuch.autor}">
-					<f:converter binding="#{autorConverter}" />
-					<f:selectItems value="#{autorPresenter.findeAlleAutoren()}" var="autor" itemLabel="#{autor.nachname}" itemValue="#{autor}"></f:selectItems>
-					</h:selectOneMenu>
-          <h:outputText value="Titel:" />
-          <h:inputText value="#{bookPresenter.bookRepository.aendernBuch.titel}" />
-          <h:commandButton action="#{bookPresenter.buchAktualisieren()}" value="Ändern" />
+          <h:outputText value="Name:" />
+          <h:inputText value="#{autorPresenter.autorRepository.aendernAutor.nachname}" />
+          <h:outputText value="Vorname:" />
+          <h:inputText value="#{autorPresenter.autorRepository.aendernAutor.vorname}" />
+          <h:commandButton action="#{autorPresenter.autorAktualisieren()}" value="Ändern" />
         </h:panelGrid>
         <br />
         <br />
