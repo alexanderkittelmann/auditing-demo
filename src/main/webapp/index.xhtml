@@ -16,15 +16,25 @@
         <br />
         <br />
         <h:panelGrid columns="2">
+        <h:outputLabel value="Name:" />
+        <h:inputText value="#{autorPresenter.neuerAutor.nachname}" />
+        <h:outputLabel value="Vorname:" />
+        <h:inputText value="#{autorPresenter.neuerAutor.vorname}" />
+        <h:commandButton action="#{autorPresenter.newAutor()}" value="Speichern" />
+        </h:panelGrid>
+        <br />
+        <br />
+        <h:panelGrid columns="2">
         <h:outputLabel value="Autor:" />
         <h:inputText value="#{bookPresenter.neuesBuch.autor}" />
         <h:outputLabel value="Titel:" />
         <h:inputText value="#{bookPresenter.neuesBuch.titel}" />
+        <h:selectManyListbox value="#{autorPresenter.findeAlleAutoren()}" ></h:selectManyListbox>
         <h:commandButton action="#{bookPresenter.newBook()}" value="Speichern" />
         </h:panelGrid>
         <br />
         <br />
-        <h:outputLink value="bookOverview.xhtml">Datenbankeinträge</h:outputLink>  
+        <h:outputLink value="overview.xhtml">Datenbankeinträge</h:outputLink>  
       </h:form>
     </ui:define>
   </ui:composition>

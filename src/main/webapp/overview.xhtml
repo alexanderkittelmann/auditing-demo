@@ -10,10 +10,74 @@
 			<h:form>
 				<br />
 				<br />
-				<h:outputText value="Alle Datenbankeinträge" style="font-size: 25pt" />
+				<h:outputText value="Autoren" style="font-size: 25pt" />
 				<br />
 				<br />
-				<h:dataTable value="#{bookPresenter.findeAlleBuecher()}" var="buch" >
+				<h:dataTable value="#{autorPresenter.autorRepository.findAll()}" var="autor">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="ID" />
+						</f:facet>
+						<h:outputText value="#{autor.id}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Name" />
+						</f:facet>
+						<h:outputText value="#{autor.nachname}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Vorname" />
+						</f:facet>
+						<h:outputText value="#{autor.vorname}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Operation" />
+						</f:facet>
+						<h:outputText value="#{autor.operation}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Benutzer" />
+						</f:facet>
+						<h:outputText value="#{autor.user}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Zeitstempel" />
+						</f:facet>
+						<h:outputText value="#{autor.timestamp}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Löschen" />
+						</f:facet>
+						<h:commandButton action="#{autorPresenter.autorLoeschen(autor)}"
+							value="Eintrag löschen" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Ändern" />
+						</f:facet>
+						<h:commandButton action="#{bookPresenter.saveAutor(autor)}"
+							value="Eintrag ändern" />
+					</h:column>
+				</h:dataTable>
+				<br />
+				<br />
+				<h:outputText value="Bücher" style="font-size: 25pt" />
+				<br />
+				<br />
+				<h:dataTable value="#{bookPresenter.findeAlleBuecher()}" var="buch">
 					<h:column>
 						<f:facet name="header">
 							<h:outputText value="ID" />
