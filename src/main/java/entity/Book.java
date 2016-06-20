@@ -9,8 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import org.hibernate.envers.Audited;
-
 @Entity
 @EntityListeners({AuditListener.class})
 public class Book extends AuditingEntity implements Serializable {
