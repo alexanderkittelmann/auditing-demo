@@ -15,7 +15,6 @@ import org.hibernate.envers.Audited;
 
 @Entity
 @EntityListeners({AuditListener.class})
-@Audited
 public class Autor extends AuditingEntity implements Serializable
 {
 

@@ -13,7 +13,6 @@ import org.hibernate.envers.Audited;
 
 @Entity
 @EntityListeners({AuditListener.class})
-@Audited
 public class Book extends AuditingEntity implements Serializable {
   
   /**
