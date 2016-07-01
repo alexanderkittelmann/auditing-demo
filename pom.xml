@@ -16,8 +16,6 @@
     
     <!-- H2 DB -->
     <h2.version>1.3.171</h2.version>
-    
-    <wildfly.version>10.0.0.Final</wildfly.version>
   </properties>
 
   <dependencies>

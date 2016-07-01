@@ -1,8 +1,9 @@
-package repository;
+package de.gedoplan.auditing_demo.repository;
 
 import java.io.Serializable;
 import java.util.List;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -13,9 +14,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
-import entity.Book;
+import de.gedoplan.auditing_demo.entity.Book;
 
-@SessionScoped
+@ApplicationScoped
 public class BookRepository implements Serializable {
 
   /**

@@ -1,4 +1,4 @@
-package entity;
+package de.gedoplan.auditing_demo.entity.auditing;
 
 import java.time.LocalDateTime;
 

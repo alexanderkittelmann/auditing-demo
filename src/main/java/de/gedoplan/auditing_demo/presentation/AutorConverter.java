@@ -1,4 +1,4 @@
-package presentation;
+package de.gedoplan.auditing_demo.presentation;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -6,8 +6,8 @@ import javax.faces.convert.Converter;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import entity.Autor;
-import repository.AutorRepository;
+import de.gedoplan.auditing_demo.entity.Autor;
+import de.gedoplan.auditing_demo.repository.AutorRepository;
 
 /**
  * Converter.

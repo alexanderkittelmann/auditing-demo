@@ -1,4 +1,4 @@
-package entity;
+package de.gedoplan.auditing_demo.entity;
 
 import java.io.Serializable;
 
@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import de.gedoplan.auditing_demo.entity.auditing.AuditListener;
+import de.gedoplan.auditing_demo.entity.auditing.AuditingEntity;
 
 @Entity
 @EntityListeners({AuditListener.class})
@@ -29,6 +32,11 @@ public class Book extends AuditingEntity implements Serializable {
   private String titel;  
   
   public Book() {}  
+  
+  public Book(Autor autor, String titel) {
+    this.autor = autor;
+    this.titel = titel;
+  } 
   
   public long getId()
   {

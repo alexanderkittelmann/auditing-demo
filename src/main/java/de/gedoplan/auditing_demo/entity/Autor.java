@@ -1,4 +1,4 @@
-package entity;
+package de.gedoplan.auditing_demo.entity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,6 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import de.gedoplan.auditing_demo.entity.auditing.AuditListener;
+import de.gedoplan.auditing_demo.entity.auditing.AuditingEntity;
 
 @Entity
 @EntityListeners({AuditListener.class})
@@ -35,6 +38,12 @@ public class Autor extends AuditingEntity implements Serializable
 
   public Autor()
   {
+  }
+  
+  public Autor(String vorname, String nachname)
+  {
+    this.vorname = vorname;
+    this.nachname = nachname;
   }
 
 
