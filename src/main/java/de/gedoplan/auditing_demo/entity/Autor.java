@@ -31,15 +31,16 @@ public class Autor extends AuditingEntity implements Serializable
   private String vorname;
 
   private String nachname;
-  
-  @OneToMany(mappedBy="autor", orphanRemoval=true, cascade=CascadeType.ALL)
+
+  @OneToMany(mappedBy = "autor", orphanRemoval = true, cascade = CascadeType.ALL)
   private List<Book> books;
 
 
   public Autor()
   {
   }
-  
+
+
   public Autor(String vorname, String nachname)
   {
     this.vorname = vorname;
@@ -114,7 +115,4 @@ public class Autor extends AuditingEntity implements Serializable
   {
     return "Autor [id=" + id + "]";
   }
-
-
- 
 }
